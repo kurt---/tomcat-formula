@@ -1,4 +1,4 @@
-{% set version = salt['pillar.get']('tomcat:version') %}
+{% set version = salt['pillar.get']('tomcat:version','7') %}
 {% set service = "tomcat" ~ version %}
 {% set tomcat = salt['grains.filter_by']({
     'Debian': {
