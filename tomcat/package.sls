@@ -9,23 +9,6 @@
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
       - file: tomcat_conf
 
-{% if grains.os == 'Ubuntu' %}
-
-defaults:
-  file.managed:
-    - name: /etc/defaults/{{ tomcat.name }}{{ tomcat.version }}
-    - source: salt://tomcat/files/debian.defaults
-    - user: root
-    - group: {{ tomcat.name }}{{ tomcat.version }}
-    - mode: 640
-    - template: jinja
-{% endif %}
-
-
-
-
-
-
 
 
 {% if grains.os == 'Arch' %}
