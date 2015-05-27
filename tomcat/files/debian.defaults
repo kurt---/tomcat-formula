@@ -46,4 +46,4 @@ JAVA_OPTS="-Djava.awt.headless=true -Xmx128m -XX:+UseConcMarkSweepGC"
 # (yes/no, default: no)
 #AUTHBIND=no
 JAVA_HOME=/usr
-JAVA_OPTS="-Djava.awt.headless=true -Xmx2G "
+JAVA_OPTS="-Djava.awt.headless=true -Xmx2G"
