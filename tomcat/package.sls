@@ -12,7 +12,7 @@
 {% if grains.os == 'Ubuntu' %}
 
 defaults:
-/etc/defaults/{{ tomcat.name }}{{ tomcat.version }}:
+  /etc/defaults/{{ tomcat.name }}{{ tomcat.version }}:
     file.managed:
         - source: salt://tomcat/files/debian.defaults
         - user: root
