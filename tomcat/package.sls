@@ -44,7 +44,7 @@ tomcat_conf:
     - name: /etc/default/tomcat{{ tomcat.version }}
     - text:
       - JAVA_HOME={{ salt['pillar.get']('java:home', '/usr') }}
-      - JAVA_OPTS="-Djava.awt.headless=true -Xmx{{ salt['pillar.get']('java:Xmx', '3G') }} -XX:MaxPermSize={{ salt['pillar.get']('java:MaxPermSize', '256m') }}"
+      - JAVA_OPTS="-Djava.awt.headless=true -Xmx{{ salt['pillar.get']('java:Xmx', '3G') }} -XX:MaxPermSize={{ salt['pillar.get']('java:MaxPermSize', '256m') }} -Djava.net.preferIPv4Stack=true"
       {% if salt['pillar.get']('java:UseConcMarkSweepGC') %}
       - JAVA_OPTS="$JAVA_OPTS {{ salt['pillar.get']('java:UseConcMarkSweepGC') }}"
       {% endif %}
