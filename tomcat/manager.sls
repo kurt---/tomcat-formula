@@ -1,5 +1,7 @@
 include:
   - tomcat
+  - tomcat.package
+
 {% if grains.os != 'FreeBSD' %}
 {% from "tomcat/map.jinja" import tomcat with context %}
 
@@ -10,6 +12,14 @@ include:
   pkg:
     - installed
 {% endif %}
+
+
+extend:
+  {{ tomcat.name }}{{ tomcat.version }}:
+    service:
+      - watch:
+        - file: /etc/{{ tomcat.name }}{{ tomcat.version }}/tomcat-users.xml
+
 
 /etc/{{ tomcat.name }}{{ tomcat.version }}/tomcat-users.xml:
     file.managed:
