@@ -1,8 +1,14 @@
 {% from "tomcat/map.jinja" import tomcat with context %}
 
+include:
+  - oracle-java
+
+
 {{ tomcat.name }}{{ tomcat.version }}:
   pkg:
     - installed
+    - require:
+      - sls: oracle-java
   service:
     - running
     - watch:
