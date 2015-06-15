@@ -8,6 +8,6 @@ include:
 ROOT-Webapp:
   cmd.run:
   - name: rm -rf /var/lib/tomcat7/webapps/ROOT
-  - onlyif: test -x  /var/lib/tomcat7/webapps/ROOT/index.html
+  - onlyif: test -e /var/lib/tomcat7/webapps/ROOT/index.html
   - require:
     - pkg: {{ tomcat.name }}{{ tomcat.version }}
