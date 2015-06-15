@@ -12,6 +12,8 @@ include:
 {{ tomcat.manager }}:
   pkg:
     - installed
+    - require:
+      - pkg: {{ tomcat.name }}{{ tomcat.version }}
 {% endif %}
 
 
