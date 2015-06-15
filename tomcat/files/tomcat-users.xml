@@ -2,5 +2,6 @@
 <tomcat-users>
     <role rolename="manager-gui"/>
     <role rolename="manager-script"/>
-    <user username="{{ user }}" password="{{ passwd }}" roles="manager-gui,manager-script"/>
+    <role rolename="admin-gui"/>
+    <user username="{{ user }}" password="{{ passwd }}" roles="manager-gui,manager-script,admin-gui"/>
 </tomcat-users>
