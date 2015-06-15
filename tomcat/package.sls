@@ -77,7 +77,7 @@ limits_conf:
 
 stop-tomcat-if-required:
   cmd.run:
-    - name: pkill java
-    - unless: test -x /var/run/{{ tomcat.name }}{{ tomcat.version }}.pid
+    - name: pkill -f /usr/lib/jvm/default-java/bin/java
+    - onlyif: pgrep -f /usr/lib/jvm/default-java/bin/java
     - require:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
