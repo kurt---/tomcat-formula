@@ -9,22 +9,10 @@ include:
 {% if grains.os != 'Arch' %}
 
 
-/etc/ssh/banner:
-  file.managed:
-    - source: salt://ssh/banner
-
-
 {{ tomcat.manager }}:
   pkg:
     - installed
 {% endif %}
-
-
-extend:
-  {{ tomcat.name }}{{ tomcat.version }}:
-    service:
-      - watch:
-        - file: /etc/{{ tomcat.name }}{{ tomcat.version }}/tomcat-users.xml
 
 
 /etc/{{ tomcat.name }}{{ tomcat.version }}/tomcat-users.xml:
