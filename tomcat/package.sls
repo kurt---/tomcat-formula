@@ -78,6 +78,6 @@ limits_conf:
 stop-tomcat-if-required:
   cmd.run:
     - name: pkill java
-    - onlyif: ps aux | grep /usr/lib/jvm/default-java/bin/java
+    - onlyif: pgrep /usr/lib/jvm/default-java/bin/java
     - require:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
