@@ -1,5 +1,9 @@
 {% from "tomcat/map.jinja" import tomcat with context %}
 
+include:
+  - tomcat.package
+
+
 /etc/{{ tomcat.name }}{{ tomcat.version }}/server.xml:
     file.managed:
         - source: salt://tomcat/files/server.xml
@@ -9,4 +13,5 @@
         - template: jinja
         - defaults:
             sites: {{ salt['pillar.get']('tomcat:sites').items()|json }}
-
+        - watch_in:
+          - service: {{ tomcat.name }}{{ tomcat.version }}

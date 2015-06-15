@@ -128,7 +128,7 @@
       {% if sites is defined %}
       {% for id, site in sites %}
       <Host name="{{ id }}" appBase="{{ site.appBase }}" debug="{{ site.debug }}" unpackWARs="{{ site.unpackWARs }}">
-        <Context path="{{ site.path }}" docBase="{{ site.docBase }}" debug="{{ site.debug }}" reloadable="{{ site.reloadable }}"/>
+        <Context path="{{ site.path }}" docBase="{{ site.docBase }}" reloadable="{{ site.reloadable }}"/>
         <Alias>{{ site.alias }}</Alias>
         <Logger className="org.apache.catalina.logger.FileLogger"
         directory="logs"  prefix="{{ id }}\_log." suffix=".txt" timestamp="true"/>
