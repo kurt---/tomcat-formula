@@ -14,6 +14,8 @@ include:
     - watch:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
       - file: tomcat_conf
+    - require:
+      - cmd: stop-tomcat-if-required
 
 
 
@@ -72,3 +74,10 @@ limits_conf:
     - watch_in:
       - service: {{ tomcat.name }}{{ tomcat.version }}
 {% endif %}
+
+stop-tomcat-if-required:
+  cmd.run:
+    - name: pkill java
+    - onlyif: ps aux | grep /usr/lib/jvm/default-java/bin/java
+    - require:
+      - pkg: {{ tomcat.name }}{{ tomcat.version }}
