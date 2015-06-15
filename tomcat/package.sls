@@ -63,4 +63,6 @@ limits_conf:
     - text:
       - {{ tomcat.name }}{{ tomcat.version }} soft nofile {{ salt['pillar.get']('limit:soft', '64000') }}
       - {{ tomcat.name }}{{ tomcat.version }} hard nofile {{ salt['pillar.get']('limit:hard', '64000') }}
+      - watch_in:
+        - service: {{ tomcat.name }}{{ tomcat.version }}
 {% endif %}
