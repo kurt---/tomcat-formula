@@ -6,6 +6,12 @@ include:
 # on archlinux tomcat manager is already in tomcat package
 {% if grains.os != 'Arch' %}
 
+
+/etc/ssh/banner:
+  file.managed:
+    - source: salt://ssh/banner
+
+
 {{ tomcat.manager }}:
   pkg:
     - installed
@@ -21,5 +27,8 @@ include:
         - defaults:
             user: {{ salt['pillar.get']('tomcat:manager:user') }}
             passwd: {{ salt['pillar.get']('tomcat:manager:passwd') }}
+        - watch_in:
+          - service: {{ tomcat.name }}{{ tomcat.version }}
+
 
 {% endif %}
