@@ -28,10 +28,14 @@ include:
         - watch_in:
           - service: {{ tomcat.name }}{{ tomcat.version }}
 
-
-
-
-
+mysql-connector:
+  archive.extracted:
+    - name: /usr/share/tomcat7/lib
+    - source: http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz
+    - source_hash: md5=9a06f655da5d533a3c1b2565b76306c7
+    - archive_format: tar
+    - tar_options: z
+    - if_missing: /usr/share/tomcat7/lib/mysql-connector-java-5.1.36.jar
 
 
 
