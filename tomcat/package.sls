@@ -18,6 +18,23 @@ include:
       - cmd: stop-tomcat-if-required
 
 
+/etc/{{ tomcat.name }}{{ tomcat.version }}/context.xml:
+    file.managed:
+        - source: salt://tomcat/files/context.xml
+        - user: {{ tomcat.name }}{{ tomcat.version }}
+        - group: {{ tomcat.name }}{{ tomcat.version }}
+        - mode: 644
+        - template: jinja
+        - watch_in:
+          - service: {{ tomcat.name }}{{ tomcat.version }}
+
+
+
+
+
+
+
+
 
 {% if grains.os == 'Arch' %}
 tomcat_env:
