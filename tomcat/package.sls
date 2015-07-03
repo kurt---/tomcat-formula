@@ -35,7 +35,7 @@ mysql-connector:
     - source_hash: md5=9a06f655da5d533a3c1b2565b76306c7
     - archive_format: tar
     - tar_options: z
-    - if_missing: /usr/share/mysql-connector-java-5.1.36.jar
+    - if_missing: /usr/share/mysql-connector-java-5.1.36
 
 
 /usr/share/tomcat7/lib/mysql-connector-java-5.1.36-bin.jar:
