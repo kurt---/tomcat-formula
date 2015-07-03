@@ -38,9 +38,9 @@ mysql-connector:
     - if_missing: /usr/share/mysql-connector-java-5.1.36.jar
 
 
-/usr/share/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36.jar:
+/usr/share/tomcat7/lib/mysql-connector-java-5.1.36.jar:
   file.symlink:
-    - target: /usr/share/tomcat7/lib/mysql-connector-java-5.1.36.jar
+    - target: /usr/share/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36.jar
     - require:
       - archive: mysql-connector
 
