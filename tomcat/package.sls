@@ -19,14 +19,14 @@ include:
 
 
 /etc/{{ tomcat.name }}{{ tomcat.version }}/context.xml:
-    file.managed:
-        - source: salt://tomcat/files/context.xml
-        - user: {{ tomcat.name }}{{ tomcat.version }}
-        - group: {{ tomcat.name }}{{ tomcat.version }}
-        - mode: 644
-        - template: jinja
-        - watch_in:
-          - service: {{ tomcat.name }}{{ tomcat.version }}
+  file.managed:
+    - source: salt://tomcat/files/context.xml
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - mode: 644
+    - template: jinja
+    - watch_in:
+      - service: {{ tomcat.name }}{{ tomcat.version }}
 
 mysql-connector:
   archive.extracted:
@@ -43,6 +43,8 @@ mysql-connector:
     - target: /usr/share/mysql-connector-java-5.1.36/mysql-connector-java-5.1.36-bin.jar
     - require:
       - archive: mysql-connector
+    - watch_in:
+      - service: {{ tomcat.name }}{{ tomcat.version }}
 
 
 
