@@ -2,6 +2,7 @@
 
 include:
   - oracle-java
+  - mysql.python
   - mysql.server
   - mysql.database
   - mysql.user
