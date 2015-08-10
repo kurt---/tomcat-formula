@@ -38,6 +38,8 @@ mysql-connector:
     - tar_options: z
     - if_missing: /usr/share/mysql-connector-java-5.1.36
     - require:
+      - sls: mysql.server
       - sls: mysql.database
       - sls: mysql.user
+      - sls: mysql.client
 
