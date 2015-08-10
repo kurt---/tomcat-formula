@@ -83,3 +83,53 @@ stop-tomcat-if-required:
     - onlyif: pgrep -f /usr/lib/jvm/default-java/bin/java
     - require:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
+
+
+/usr/share/tomcat7/common:
+  file.directory:
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - require:
+      - pkg: {{ tomcat.name }}{{ tomcat.version }}
+
+
+/usr/share/tomcat7/common/classes:
+  file.directory:
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - require:
+      - file: /usr/share/tomcat7/common
+
+
+/usr/share/tomcat7/server:
+  file.directory:
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - require:
+      - pkg: {{ tomcat.name }}{{ tomcat.version }}
+
+
+/usr/share/tomcat7/server/classes:
+  file.directory:
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - require:
+      - file: /usr/share/tomcat7/server
+
+
+/usr/share/tomcat7/shared:
+  file.directory:
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - require:
+      - pkg: {{ tomcat.name }}{{ tomcat.version }}
+
+
+/usr/share/tomcat7/shared/classes:
+  file.directory:
+    - user: {{ tomcat.name }}{{ tomcat.version }}
+    - group: {{ tomcat.name }}{{ tomcat.version }}
+    - require:
+      - file: /usr/share/tomcat7/shared
+
+
