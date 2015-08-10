@@ -91,7 +91,8 @@ stop-tomcat-if-required:
     - group: {{ tomcat.name }}{{ tomcat.version }}
     - require:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
-
+    - require_in:
+      - cmd: stop-tomcat-if-required
 
 /usr/share/tomcat7/common/classes:
   file.directory:
@@ -99,7 +100,8 @@ stop-tomcat-if-required:
     - group: {{ tomcat.name }}{{ tomcat.version }}
     - require:
       - file: /usr/share/tomcat7/common
-
+    - require_in:
+      - cmd: stop-tomcat-if-required
 
 /usr/share/tomcat7/server:
   file.directory:
@@ -107,7 +109,8 @@ stop-tomcat-if-required:
     - group: {{ tomcat.name }}{{ tomcat.version }}
     - require:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
-
+    - require_in:
+      - cmd: stop-tomcat-if-required
 
 /usr/share/tomcat7/server/classes:
   file.directory:
@@ -115,7 +118,8 @@ stop-tomcat-if-required:
     - group: {{ tomcat.name }}{{ tomcat.version }}
     - require:
       - file: /usr/share/tomcat7/server
-
+    - require_in:
+      - cmd: stop-tomcat-if-required
 
 /usr/share/tomcat7/shared:
   file.directory:
@@ -123,7 +127,8 @@ stop-tomcat-if-required:
     - group: {{ tomcat.name }}{{ tomcat.version }}
     - require:
       - pkg: {{ tomcat.name }}{{ tomcat.version }}
-
+    - require_in:
+      - cmd: stop-tomcat-if-required
 
 /usr/share/tomcat7/shared/classes:
   file.directory:
@@ -131,5 +136,6 @@ stop-tomcat-if-required:
     - group: {{ tomcat.name }}{{ tomcat.version }}
     - require:
       - file: /usr/share/tomcat7/shared
-
+    - require_in:
+      - cmd: stop-tomcat-if-required
 
