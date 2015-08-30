@@ -33,10 +33,9 @@ include:
 mysql-connector:
   archive.extracted:
     - name: /usr/share/
-    - source: http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz
-    - source_hash: md5=9a06f655da5d533a3c1b2565b76306c7
-    - archive_format: tar
-    - tar_options: z
+    - source: http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.36.zip
+    - source_hash: md5=b7915ebc57cbf80b4d102bb7f7620d99
+    - archive_format: zip
     - if_missing: /usr/share/mysql-connector-java-5.1.36
     - require:
       - sls: mysql.python
@@ -44,4 +43,3 @@ mysql-connector:
       - sls: mysql.database
       - sls: mysql.user
       - sls: mysql.client
-
