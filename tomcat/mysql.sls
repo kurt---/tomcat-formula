@@ -2,8 +2,8 @@
 
 include:
   - oracle-java
-  - mysql.python
   - mysql.server
+  - mysql.python
   - mysql.database
   - mysql.user
   - mysql.client
@@ -38,8 +38,8 @@ mysql-connector:
     - archive_format: zip
     - if_missing: /usr/share/mysql-connector-java-5.1.36
     - require:
-      - sls: mysql.python
       - sls: mysql.server
+      - sls: mysql.python
       - sls: mysql.database
       - sls: mysql.user
       - sls: mysql.client
